@@ -1,0 +1,8 @@
+{
+    "name"           : "boilerplate",
+    "worklib"        : "work",
+    "dir_interfaces" : "src/interfaces/",
+    "dir_packages"   : "src/packages/",
+    "dir_modules"    : "src/modules/",
+    "dir_tests"      : "test/"
+}
