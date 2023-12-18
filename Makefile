@@ -32,10 +32,6 @@ $(VIVADO_PRJ): project_file
 xvlog: $(VIVADO_PRJ)
 	cd sim && \
 	xvlog $(XVLOG_PARAMS) --prj $(VIVADO_PRJ)
-	# xvlog $(XVLOG_PARAMS) --prj $(VIVADO_INTERFACES) && \
-	# xvlog $(XVLOG_PARAMS) --prj $(VIVADO_PACKAGES) && \
-	# xvlog $(XVLOG_PARAMS) --prj $(VIVADO_MODULES) && \
-	# xvlog $(XVLOG_PARAMS) --prj $(VIVADO_TESTS)
 
 xelab: xvlog
 	cd sim && \
