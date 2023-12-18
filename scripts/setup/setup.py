@@ -1,5 +1,6 @@
 import glob
 import json
+import os
 
 extensions = {
         "sv"      : ".sv",
@@ -14,6 +15,9 @@ def main(root_dir: str):
             settings = json.load(f_project_settings)
     except:
         print('JSON file /scripts/setup/project_settings.json either doesnt exist or is malformed')
+
+    for dir in settings['project_dirs']:
+        os.makedirs(f'{root_dir}/dir', exist_ok=True)
         
     proj = open(f'{root_dir}sim/{settings['name']}_vivado.prj', "w")
 

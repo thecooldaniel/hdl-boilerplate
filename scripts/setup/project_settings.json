@@ -4,5 +4,16 @@
     "dir_interfaces" : "src/interfaces/",
     "dir_packages"   : "src/packages/",
     "dir_modules"    : "src/modules/",
-    "dir_tests"      : "test/"
+    "dir_tests"      : "test/",
+    "project_dirs"   : [
+        "config/make",
+        "lib",
+        "scripts/setup",
+        "scripts/tcl",
+        "sim",
+        "src/interfaces",
+        "src/packages",
+        "src/modules",
+        "test/common"
+    ]
 }
