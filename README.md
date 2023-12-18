@@ -2,5 +2,8 @@ A boilerplate for HDL projects. Meant to be used with VSCode, make, and Python, 
 
 # Getting Started
 1. Pull down the repo
-2. Edit scripts/serup/project_settings.json
-2. From the root of the project execute: `python scripts/setup/setup.py`
+2. Edit scripts/setup/project_settings.json
+3. From the root of the project execute `python scripts/setup/setup.py`
+4. From the root of the project execute `make setup`
+
+After setup, `make` can be called as usual. To view waves in Vivado, use `make vivado_waves`. To view waves in GTKWave, use `make gtkwave` 
