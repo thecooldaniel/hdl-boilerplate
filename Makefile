@@ -19,7 +19,13 @@ else
     include config/make/vivado_params.mk
 endif
 
-default: xsim
+.PHONY: all clean reset
+.PHONY: setup project_file xvlog xelab xsim vivado_waves gtkwave run
+
+default: xelab
+
+all: xsim
+run: xsim
 
 setup: reset project_file
 
@@ -48,7 +54,7 @@ vivado_waves: $(MAKEFILE_DIR)sim/$(SNAPSHOT).wdb
 
 gtkwave: $(MAKEFILE_DIR)sim/$(SNAPSHOT).vcd
 	cd sim && \
-	gtkwave -T $(MAKEFILE_DIR)scripts/tcl/gtkwave_load_all_signals.tcl $(SNAPSHOT).vcd
+	gtkwave $(SNAPSHOT).vcd
 
 clean:
 	find sim -type f ! -name '*.prj' | xargs rm -f && \

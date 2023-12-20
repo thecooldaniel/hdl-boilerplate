@@ -1,28 +1,31 @@
 import glob
 import json
 import os
+from collections import namedtuple
 
-extensions = {
-        "sv"      : ".sv",
-        "verilog" : ".v",
-        "vhdl"    : ".vhd"
-    }
+Filetype = namedtuple('Filetype', ['name', 'ext'])
+extensions = [
+    Filetype('sv', '.sv'),
+    Filetype('verilog', '.v'),
+    Filetype('vhdl', '.vhd'),
+    Filetype('vhdl', '.vhdl')
+]
 
 def main(root_dir: str):
 
+    # Get settings from project_settings.json
     try:
         with open('project_settings.json', 'r') as f_project_settings:
             settings = json.load(f_project_settings)
     except:
         print('JSON file /scripts/setup/project_settings.json either doesnt exist or is malformed')
 
+    # Create project directories
     for dir in settings['project_dirs']:
         os.makedirs(f'{root_dir}/{dir}', exist_ok=True)
         
     proj = open(f'{root_dir}sim/{settings['name']}_vivado.prj', "w")
-
-    for type, ext in extensions.items():
-
+    for (type, ext) in extensions:
         # Interfaces must be first
         for file in glob.glob(f'{root_dir}{settings['dir_interfaces']}*{ext}'):
             proj.write(f'{type} work {file}\n')
@@ -40,8 +43,6 @@ def main(root_dir: str):
 
         for file in glob.glob(f'{root_dir}{settings['dir_tests']}**/*{ext}'):
             proj.write(f'{type} work {file}\n')
-
-    
     proj.close()
 
     # Create project.mk using values from project_settings.json
