@@ -47,7 +47,9 @@ module boilerplate_tb;
     in = 456;  // Another example input
 
     // Add more test cases as needed
+  end
 
+  initial begin
     // Finish simulation
     #100 $finish;
   end
