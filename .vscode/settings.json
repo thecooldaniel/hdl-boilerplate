@@ -2,5 +2,6 @@
     "ctags-companion.command": "ctags -R --fields=+nKz -f .vscode/.tags --langmap=SystemVerilog:+.sv -R src /opt/uvm-1.2/src",
     "ctags-companion.ctagsGoToSymbolInEditorCommand": "ctags --fields=+nKz -f - --langmap=SystemVerilog:+.sv -R src /opt/uvm-1.2/src",
     "ctags-companion.readtagsGoToDefinitionCommand": "ctags -R --fields=+nKz -f .vscode/.tags --langmap=SystemVerilog:+.sv -R src /opt/uvm-1.2/src && readtags -t .vscode/.tags -en",
-    "ctags-companion.readtagsGoToSymbolInWorkspaceCommand": "ctags -R --fields=+nKz -f .vscode/.tags --langmap=SystemVerilog:+.sv -R src /opt/uvm-1.2/src && readtags -t .vscode/.tags -enpi"
+    "ctags-companion.readtagsGoToSymbolInWorkspaceCommand": "ctags -R --fields=+nKz -f .vscode/.tags --langmap=SystemVerilog:+.sv -R src /opt/uvm-1.2/src && readtags -t .vscode/.tags -enpi",
+    "svg.preview.background": "dark-transparent"
 }

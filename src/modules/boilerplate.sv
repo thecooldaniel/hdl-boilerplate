@@ -30,8 +30,7 @@ module boilerplate #(
       reg1 <= in;
       reg2 <= reg1 + PARAM1 + 100;
     end
-  end
-
+  end 
 
   // Assign output
   assign out = reg2;

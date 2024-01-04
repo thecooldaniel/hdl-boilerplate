@@ -1,0 +1,38 @@
+@startuml
+left to right direction
+allowmixing
+' set separator .
+
+'skinparam linetype ortho
+
+abstract boilerplate_tb {
+    ..Params..
+    +PARAM1
+    +PARAM2
+    ..Ports..
+    clock
+    reset
+    in
+    out
+} 
+
+entity boilerplate {
+    ..Params..
+    +PARAM1
+    +PARAM2
+    ..Ports..
+    clk
+    reset
+    in
+    out
+}
+
+boilerplate_tb::PARAM1 --> boilerplate::PARAM1
+boilerplate_tb::PARAM2 --> boilerplate::PARAM2
+
+boilerplate_tb::reset --> boilerplate::reset
+boilerplate_tb::clock --> boilerplate::clk
+boilerplate_tb::in --> boilerplate::in
+boilerplate_tb::out <-- boilerplate::out
+
+@enduml

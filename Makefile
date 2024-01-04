@@ -24,7 +24,7 @@ endif
 
 default: xelab
 
-all: xsim
+all: xsim_all
 run: xsim
 
 setup: reset project_file
@@ -43,18 +43,14 @@ xelab: xvlog
 	cd sim && \
 	xelab $(XELAB_PARAMS)
 
-xsim: xelab
+xsim: 
 	cd sim && \
 	xsim $(XSIM_PARAMS) $(SNAPSHOT) && \
 	mv dump.vcd $(SNAPSHOT).vcd
 
-vivado_waves: $(MAKEFILE_DIR)sim/$(SNAPSHOT).wdb
-	cd sim && \
-	xsim --gui $(SNAPSHOT).wdb
+xsim_all: xelab xsim
 
-gtkwave: $(MAKEFILE_DIR)sim/$(SNAPSHOT).vcd
-	cd sim && \
-	gtkwave $(SNAPSHOT).vcd
+#########################################################
 
 clean:
 	find sim -type f ! -name '*.prj' | xargs rm -f && \

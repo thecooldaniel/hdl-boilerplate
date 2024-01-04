@@ -21,7 +21,7 @@ def main(root_dir: str):
         print('JSON file /scripts/setup/project_settings.json either doesnt exist or is malformed')
 
     # Create project directories
-    for dir in settings['project_dirs']:
+    for dir in settings['required_dirs']:
         os.makedirs(f'{root_dir}/{dir}', exist_ok=True)
         
     proj = open(f'{root_dir}sim/{settings['name']}_vivado.prj', "w")
